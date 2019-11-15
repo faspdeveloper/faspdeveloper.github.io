@@ -1,0 +1,170 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>User CRUD Demo</title>
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <script type="text/javascript" src="/js/materialize.min.js"></script>
+  <link rel="manifest" href="/manifest.json">
+</head>
+
+<body class="grey lighten-4" onload="listExistingTasks()">
+
+  <!-- top nav -->
+  <nav class="z-depth-0">
+    <div class="nav-wrapper container">
+      <a href="/">User CRUD Demo</a>
+      <span class="right grey-text text-darken-1">
+        <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
+      </span>
+    </div>
+  </nav>
+
+  <!-- side nav -->
+  <ul id="side-menu" class="sidenav side-menu">
+    <li><a class="subheader">User CRUD Demo</a></li>
+    <li><a href="/" class="waves-effect">Home</a></li>
+    <li><a href="/pages/about.html" class="waves-effect">About</a></li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li><a href="/pages/contact.html" class="waves-effect">
+        <i class="material-icons">mail_outline</i>Contact</a>
+    </li>
+  </ul>
+  <div id="side-form" class="">
+    <form class="container section" id="addForm">
+      <h6>Add Task</h6>
+      <div class="divider"></div>
+      <div class="input-field">
+        <input placeholder="Tasks" id="task" type="text" class="validate">
+        <label for="ingredients">Tasks</label>
+      </div>
+      <div class="input-field center">
+        <button class="btn-small" type="button" onclick="addTask();">Add</button>
+      </div>
+    </form>
+  </div>
+</body>
+<script>
+  var db1;
+  function addTask() {
+    var queryString = parseInt(location.search.substring(1));
+    var openRequest = indexedDB.open('test_db', 1);
+    // console.log("OpenRequset", openRequest);
+    openRequest.onupgradeneeded = function (e) {
+      // console.log('In Open Request');
+      var db1 = e.target.result;
+      // console.log('running onupgradeneeded');
+      if (!db1.objectStoreNames.contains('user')) {
+        var storeOS = db1.createObjectStore('user', { keyPath: 'id', autoIncrement: true });
+        storeOS.createIndex("emailId", "emailId", { unique: true });
+      }
+    };
+    openRequest.onsuccess = function (e) {
+      console.log('inside open request list of receipe');
+      db1 = e.target.result;
+      console.log("Db in success in list of receipe", db1);
+      var transaction = db1.transaction(['user'], 'readwrite');
+      var recipe = transaction.objectStore('user');
+      // console.log("keyPath",recipe.keyPath);
+      console.log(queryString);
+      var getRequest1 = recipe.get(queryString);
+      // console.log(getRequest.result);
+
+      getRequest1.onerror = function (event) {
+        // Handle errors!
+      };
+      getRequest1.onsuccess = function (event) {
+        // Do something with the request.result!
+        // console.log("Result", getRequest);
+        // console.log(event.target.result.key)
+        var myResult = [];
+        myResult = getRequest1.result;
+        var item = {
+          name: myResult.name,
+          emailId: myResult.emailId,
+          task: document.getElementById("task").value,
+          created: myResult.created,
+          id: queryString
+        };
+        item.n
+        // console.log("keyPath",recipe.keyPath);
+        var getRequest2 = recipe.put(item);
+        // console.log(getRequest.result);
+
+        getRequest2.onerror = function (event) {
+          // Handle errors!
+        };
+        getRequest2.onsuccess = function (event) {
+          window.location = "https://faspdeveloper.github.io/index.html";
+
+        };
+      };
+    };
+    openRequest.onerror = function (e) {
+
+      console.log('onerror in list of receipe!');
+      // console.dir(e);
+    };
+  }
+
+  function listExistingTasks() {
+
+    var queryString = parseInt(location.search.substring(1));
+    var openRequest = indexedDB.open('test_db', 1);
+    // console.log("OpenRequset", openRequest);
+    openRequest.onupgradeneeded = function (e) {
+      // console.log('In Open Request');
+      var db1 = e.target.result;
+      // console.log('running onupgradeneeded');
+      if (!db1.objectStoreNames.contains('user')) {
+        var storeOS = db1.createObjectStore('user', { keyPath: 'id', autoIncrement: true });
+        storeOS.createIndex("emailId", "emailId", { unique: true });
+      }
+    };
+    openRequest.onsuccess = function (e) {
+      console.log('inside open request list of receipe');
+      db1 = e.target.result;
+      console.log("Db in success in list of receipe", db1);
+      var transaction = db1.transaction(['user'], 'readwrite');
+      var recipe = transaction.objectStore('user');
+      // console.log("keyPath",recipe.keyPath);
+      console.log(queryString);
+      var getRequest = recipe.get(queryString);
+      // console.log(getRequest.result);
+
+      getRequest.onerror = function (event) {
+        // Handle errors!
+      };
+      getRequest.onsuccess = function (event) {
+        // Do something with the request.result!
+        // console.log("Result", getRequest);
+        // console.log(event.target.result.key)
+        var myResult = [];
+        myResult = getRequest.result;
+        console.log("myresult " + myResult);
+        console.log(myResult.name);
+
+        document.getElementById("task").value = myResult.task;
+        // for (i = 0; i < myResult.length; i++) {
+        // console.log(myResult[i].name)
+        // document.getElementById("recipeList").innerHTML += "<div class='card-panel recipe white row' id='divElement'><div class='recipe-details'><div class='recipe-title'>" + myResult.task + "</div></div></div>";
+        // console.log("Get Result" + getRequest.result[i].title);
+        // }
+      };
+    };
+    openRequest.onerror = function (e) {
+
+      console.log('onerror in list of receipe!');
+      // console.dir(e);
+    };
+  }
+</script>
+
+</html>
