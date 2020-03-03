@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c98bfcec941b65e59407d8f0e793c778",
+    "revision": "5f96d2434fe2513b0b6fcb0b0ee79db1",
     "url": "/palashSprint1/index.html"
   },
   {
