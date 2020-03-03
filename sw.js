@@ -2,7 +2,9 @@ let CACHE_NAME = 'your-app-name';
 let urlsToCache = [
   '/',
   '/login',
-  '/singUp'
+  '/singUp',
+  '/importProgramData',
+  '/exportProgramData'
 ];
 
 // Install a service worker

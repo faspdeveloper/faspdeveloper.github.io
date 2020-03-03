@@ -1,23 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.d143daa1.chunk.css",
-    "main.js": "/static/js/main.d8deb134.chunk.js",
-    "main.js.map": "/static/js/main.d8deb134.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.398e9359.js",
-    "runtime-main.js.map": "/static/js/runtime-main.398e9359.js.map",
-    "static/js/2.ac138660.chunk.js": "/static/js/2.ac138660.chunk.js",
-    "static/js/2.ac138660.chunk.js.map": "/static/js/2.ac138660.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.f58da2bdbdfce172babfde8ce257ab34.js": "/precache-manifest.f58da2bdbdfce172babfde8ce257ab34.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.d143daa1.chunk.css.map": "/static/css/main.d143daa1.chunk.css.map",
-    "static/js/2.ac138660.chunk.js.LICENSE": "/static/js/2.ac138660.chunk.js.LICENSE",
-    "static/media/bootstrap.min.css": "/static/media/glyphicons-halflings-regular.ff423a42.svg"
+    "main.css": "/palashSprint1/static/css/main.9b8c0176.chunk.css",
+    "main.js": "/palashSprint1/static/js/main.60dad106.chunk.js",
+    "main.js.map": "/palashSprint1/static/js/main.60dad106.chunk.js.map",
+    "runtime-main.js": "/palashSprint1/static/js/runtime-main.68709639.js",
+    "runtime-main.js.map": "/palashSprint1/static/js/runtime-main.68709639.js.map",
+    "static/css/2.3564eac7.chunk.css": "/palashSprint1/static/css/2.3564eac7.chunk.css",
+    "static/js/2.297a2891.chunk.js": "/palashSprint1/static/js/2.297a2891.chunk.js",
+    "static/js/2.297a2891.chunk.js.map": "/palashSprint1/static/js/2.297a2891.chunk.js.map",
+    "index.html": "/palashSprint1/index.html",
+    "precache-manifest.b6f53a2b27625f6234dfebcca1a89f02.js": "/palashSprint1/precache-manifest.b6f53a2b27625f6234dfebcca1a89f02.js",
+    "service-worker.js": "/palashSprint1/service-worker.js",
+    "static/css/2.3564eac7.chunk.css.map": "/palashSprint1/static/css/2.3564eac7.chunk.css.map",
+    "static/css/main.9b8c0176.chunk.css.map": "/palashSprint1/static/css/main.9b8c0176.chunk.css.map",
+    "static/js/2.297a2891.chunk.js.LICENSE": "/palashSprint1/static/js/2.297a2891.chunk.js.LICENSE",
+    "static/js/main.60dad106.chunk.js.LICENSE": "/palashSprint1/static/js/main.60dad106.chunk.js.LICENSE",
+    "static/media/theme-default.css": "/palashSprint1/static/media/wall_1.17165588.jpg",
+    "static/media/Customui.css": "/palashSprint1/static/media/login-screen.d5058339.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.398e9359.js",
-    "static/js/2.ac138660.chunk.js",
-    "static/css/main.d143daa1.chunk.css",
-    "static/js/main.d8deb134.chunk.js"
+    "static/js/runtime-main.68709639.js",
+    "static/css/2.3564eac7.chunk.css",
+    "static/js/2.297a2891.chunk.js",
+    "static/css/main.9b8c0176.chunk.css",
+    "static/js/main.60dad106.chunk.js"
   ]
 }
